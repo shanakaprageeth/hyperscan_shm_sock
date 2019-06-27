@@ -54,3 +54,13 @@ run_gdb: clean $(EXECUTABLE_M)
 
 clean:
 	rm -f $(OBJECTS_M) $(OBJECTS_F)  $(OBJECTS_C) $(EXECUTABLE_M) $(EXECUTABLE_F)
+	
+compile_socket_s:
+	g++ -std=c++11 -o server socketServer/socketserver.cpp headers/remoteCom.cpp headers/messageInterpreter.cpp -lpthread
+compile_socket_c:
+	g++ -std=c++11 -o client socketClient/socketclient.cpp headers/remoteCom.cpp headers/messageInterpreter.cpp -lpthread
+
+create_files :
+	echo "sample text" > fd  
+	echo "sample text" > fd_1
+	echo "sample text" > fd_controll
